@@ -18,9 +18,12 @@ var weatherIconsPlaceholders = document.querySelectorAll("img")
 
 
 var select  = document.querySelector("#city")
-select.onchange = function(){
-	var townName = select.value	
-	var xhttp = new XMLHttpRequest();
+
+
+
+ var getWeatherData = function(){
+  var townName = select.value 
+  var xhttp = new XMLHttpRequest();
  xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
      var response = JSON.parse(this.responseText);
@@ -40,4 +43,6 @@ select.onchange = function(){
 xhttp.open("GET", "https://intense-beach-78744.herokuapp.com/?city=" + townName, true);
 xhttp.send();
 }
+select.onchange = getWeatherData
+getWeatherData()
 // add more attributes,button,nice cityName
