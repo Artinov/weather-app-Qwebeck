@@ -19,9 +19,7 @@ var info = document.querySelector("#info")
 
 
 var select  = document.querySelector("#city")
-if (select.value!=" "){
-  info.setAttribute("style","display:block")
-}
+
 
 
  var getWeatherData = function(){
@@ -47,9 +45,14 @@ xhttp.open("GET", "https://intense-beach-78744.herokuapp.com/?city=" + townName,
 xhttp.send();
 }
 
+var getWeather = document.querySelector("#getWeather")
 // if (select.value!=" "){
 //   info.setAttribute("style","display:block")
 // }
-select.onchange = getWeatherData
+getWeather.onclick = getWeatherData
 getWeatherData()
+
+if (select.value!=" "){
+  info.setAttribute("style","display:block")
+}
 
